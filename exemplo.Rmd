@@ -1,0 +1,12 @@
+```{r}
+install.packages("e1071")
+library(e1071)
+```
+
+```{r}
+plot(iris[,1:4])
+```
+
+```{r}
+VADeaths
+```
