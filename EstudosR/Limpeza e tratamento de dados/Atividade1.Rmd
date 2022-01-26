@@ -1,0 +1,40 @@
+```{r}
+dados =  read.csv("../../Bases de Dados/tempo.csv", sep = ";", na.strings = "", stringsAsFactors = T)
+head(dados)
+```
+Questão 01
+```{r}
+unique(dados$ï..Aparencia)
+summary(dados$ï..Aparencia)
+dados[is.na(dados$ï..Aparencia),]
+```
+Removendo menos da base de dados (Não faz sentindo)
+```{r}
+dados[!dados$ï..Aparencia %in% c("sol","chuva","nublado"),]$ï..Aparencia = "sol"
+summary(dados$ï..Aparencia)
+dados$ï..Aparencia = factor(dados$ï..Aparencia)
+summary(dados$ï..Aparencia)
+```
+Mantendo temperatura entre -130 ~ 130F
+```{r}
+dados[dados$Temperatura < -130 | dados$Temperatura > 130,]$Temperatura
+dados[is.na(dados$Temperatura),]
+
+dados[dados$Temperatura < -130 | dados$Temperatura > 130,]$Temperatura = median(dados$Temperatura)
+summary(dados$Temperatura)
+```
+Mantendo umidade entre 0 ~ 100
+```{r}
+summary(dados$Umidade)
+dados[dados$Umidade < 0 | dados$Umidade > 100,]$Umidade
+dados[is.na(dados$Umidade),]$Umidade
+dados[is.na(dados$Umidade),]$Umidade = median(dados$Umidade, na.rm = T)
+
+dados[dados$Umidade < 0 | dados$Umidade > 100,]$Umidade = median(dados$Umidade)
+summary(dados$Umidade)
+```
+Manter jogar entre sim e não
+```{r}
+summary(dados$Jogar)
+```
+
