@@ -1,0 +1,6 @@
+```{r}
+trees
+hist(trees$Height)
+hist(trees$Height, main = "Árvores", ylab = "Frequência",col = "Red")
+```
+
