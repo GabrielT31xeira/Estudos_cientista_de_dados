@@ -1,0 +1,18 @@
+```{r}
+install.packages("stargazer")
+library(stargazer)
+```
+
+```{r}
+stargazer(iris)
+```
+
+```{r}
+stargazer(iris, type = "text")
+
+```
+
+```{r}
+stargazer(women, out = "women.tex",summary = FALSE)
+```
+
