@@ -1,0 +1,48 @@
+```{r}
+#install.packages("lattice")
+library(lattice)
+```
+
+```{r}
+bwplot(trees$Volume)
+bwplot(trees$Volume, main="Arvores", xlab = "Volume")
+```
+
+```{r}
+histogram(trees$Volume, main="Arvores", xlab = "Volume", aspect = 1, type = "percent", nint = 20)
+```
+
+```{r}
+chickwts
+histogram(chickwts$weight)
+aggregate(chickwts$weight, by = list(chickwts$feed), FUN = sum)
+histogram(~weight | feed, data = chickwts)
+```
+
+```{r}
+CO2
+xyplot(CO2$conc ~ CO2$uptake)
+xyplot(CO2$conc ~ CO2$uptake | CO2$Type)
+xyplot(CO2$conc ~ CO2$uptake | CO2$Treatment)
+```
+
+```{r}
+esoph
+dotplot(esoph$alcgp ~ esoph$ncontrols, data=esoph)
+dotplot(esoph$alcgp ~ esoph$ncontrols | esoph$tobgp)
+```
+
+```{r}
+densityplot(~CO2$conc | CO2$Treatment, plot.points = FALSE)
+densityplot(CO2$conc)
+densityplot(~CO2$conc | CO2$Treatment)
+```
+```{r}
+OrchardSprays
+cloud(decrease ~ rowpos * colpos, data = OrchardSprays)
+cloud(decrease ~ rowpos * colpos, groups = treatment, data = OrchardSprays)
+```
+```{r}
+trees
+levelplot(trees$Girth ~ trees$Height * trees$Volume)
+```
